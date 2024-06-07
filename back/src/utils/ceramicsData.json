@@ -1,0 +1,98 @@
+ [
+    {
+        "id": 1,
+        "name": "Cerámica para piso interior",
+        "description": "Cerámica de alta resistencia para pisos de interiores.",
+        "price": 15.99,
+        "stock": 200,
+        "category": "Piso",
+        "use": "Interior",
+        "color": "Beige",
+        "size": "60x60 cm",
+        "imageUrl": "https://example.com/ceramica_piso_interior.jpg"
+    },
+    {
+        "id": 2,
+        "name": "Cerámica para piso exterior",
+        "description": "Cerámica antideslizante para exteriores",
+        "price": 18.50,
+        "stock": 150,
+        "category": "Piso",
+        "use": "Exterior",
+        "color": "Gris",
+        "size": "45x45 cm",
+        "imageUrl": "https://example.com/ceramica_piso_exterior.jpg"
+    },
+    {
+        "id": 3,
+        "name": "Azulejo para baño",
+        "description": "Azulejo blanco brillante para baños, resistente a la humedad.",
+        "price": 12.75,
+        "stock": 300,
+        "category": "Baño",
+        "use": "Interior",
+        "color": "Blanco",
+        "size": "30x30 cm",
+        "imageUrl": "https://example.com/azulejo_bano.jpg"
+    },
+    {
+        "id": 4,
+        "name": "Cerámica para piso azul",
+        "description": "Cerámica azul para pisos de cocina o baño, fácil de limpiar.",
+        "price": 14.99,
+        "stock": 180,
+        "category": "Piso",
+        "use": "Interior",
+        "color": "Azul",
+        "size": "50x50 cm",
+        "imageUrl": "https://example.com/ceramica_azul.jpg"
+    },
+    {
+        "id": 5,
+        "name": "Azulejo para cocina",
+        "description": "Azulejo decorativo para paredes de cocina, diseño geométrico.",
+        "price": 16.00,
+        "stock": 250,
+        "category": "Cocina",
+        "use": "Interior",
+        "color": "Multicolor",
+        "size": "20x20 cm",
+        "imageUrl": "https://example.com/azulejo_cocina.jpg"
+    },
+    {
+        "id": 6,
+        "name": "Cerámica para fachada",
+        "description": "Cerámica resistente para fachadas exteriores",
+        "price": 20.00,
+        "stock": 100,
+        "category": "Fachada",
+        "use": "Exterior",
+        "color": "Marrón",
+        "size": "30x60 cm",
+        "imageUrl": "https://example.com/ceramica_fachada.jpg"
+    },
+    {
+        "id": 7,
+        "name": "Cerámica antideslizante para baño",
+        "description": "Cerámica antideslizante para pisos de baño",
+        "price": 13.50,
+        "stock": 220,
+        "category": "Baño",
+        "use": "Interior",
+        "color": "Gris Claro",
+        "size": "30x30 cm",
+        "imageUrl": "https://example.com/ceramica_antideslizante_bano.jpg"
+    },
+    {
+        "id": 8,
+        "name": "Cerámica para terraza",
+        "description": "Cerámica duradera para terrazas exteriores",
+        "price": 17.75,
+        "stock": 130,
+        "category": "Terraza",
+        "use": "Exterior",
+        "color": "Terracota",
+        "size": "40x40 cm",
+        "imageUrl": "https://example.com/ceramica_terraza.jpg"
+    }
+]
