@@ -2,42 +2,42 @@ import { Entity, Column } from 'typeorm';
 
 @Entity()
 class User {
-  @Column()
+  @Column({unique: true, nullable: false})
   id: number;
 
-  @Column()
+  @Column({unique: true, nullable: false})
   email: string;
 
-  @Column()
+  @Column({nullable: false})
   password: string;
 
-  @Column()
+  @Column({nullable: false})
   cellphone: string;
 
-  @Column()
+  @Column({nullable:false})
   firstname: string;
 
-  @Column()
+  @Column({nullable:false})
   lastname: string;
 
-  @Column()
+  @Column({nullable:false})
   address: string;
 
-  @Column()
+  @Column({nullable:false})
   country: string;
 
-  @Column()
+  @Column({nullable:false})
   identityType: string;
 
-  @Column()
+  @Column({unique: true, nullable: false})
   identity: number;
 
-  @Column()
+  @Column({nullable:false})
   gender: string;
 
-  @Column()
+  @Column({nullable:false})
   birthdate: Date;
 
-  @Column()
+  @Column({nullable:false})
   createdAt: Date;
 }
