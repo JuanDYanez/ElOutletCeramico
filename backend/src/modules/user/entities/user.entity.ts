@@ -1,43 +1,64 @@
-import { Entity, Column } from 'typeorm';
+import {
+  Entity,
+  Column,
+  PrimaryGeneratedColumn,
+  Index,
+  CreateDateColumn,
+  DeleteDateColumn,
+  UpdateDateColumn,
+} from 'typeorm';
+import { Gender, UserRole, IdentityType } from './user.enum';
 
-@Entity()
-class User {
-  @Column({unique: true, nullable: false})
+@Entity({ name: 'Usuarios' })
+export class User {
+  @PrimaryGeneratedColumn()
   id: number;
 
-  @Column({unique: true, nullable: false})
+  @Index()
+  @Column({ unique: true, nullable: false })
   email: string;
 
-  @Column({nullable: false})
-  password: string;
+  @Column({ nullable: false })
+  contraseña: string;
 
-  @Column({nullable: false})
-  cellphone: string;
+  @Column({ nullable: false })
+  telefono: string;
 
-  @Column({nullable:false})
-  firstname: string;
+  @Column({ nullable: false })
+  nombres: string;
 
-  @Column({nullable:false})
-  lastname: string;
+  @Column({ nullable: false })
+  apellido: string;
 
-  @Column({nullable:false})
-  address: string;
+  @Column({ nullable: false })
+  direccion: string;
 
-  @Column({nullable:false})
-  country: string;
+  @Column({ type: 'enum', enum: IdentityType, nullable: false })
+  tipoDeIdentidad: IdentityType;
 
-  @Column({nullable:false})
-  identityType: string;
+  @Index()
+  @Column({ unique: true, nullable: false })
+  numeroDeIdentidad: number;
 
-  @Column({unique: true, nullable: false})
-  identity: number;
+  @Column({ type: 'enum', enum: Gender, nullable: false })
+  genero: Gender;
 
-  @Column({nullable:false})
-  gender: string;
+  @Column({ nullable: false })
+  fechaDeNacimiento: Date;
 
-  @Column({nullable:false})
-  birthdate: Date;
+  @Column({ type: 'enum', enum: UserRole, nullable: false })
+  rol: UserRole;
 
-  @Column({nullable:false})
-  createdAt: Date;
+  @CreateDateColumn({
+    type: 'timestamp',
+    nullable: false,
+    default: () => 'CURRENT_TIMESTAMP',
+  })
+  creado: Date;
+
+  @DeleteDateColumn({ type: 'timestamp', nullable: true })
+  eliminado?: Date;
+
+  @UpdateDateColumn({ type: 'timestamp', nullable: true })
+  actualizado: Date;
 }
