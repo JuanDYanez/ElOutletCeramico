@@ -7,7 +7,7 @@ import {
   Matches,
   Length,
 } from 'class-validator';
-import { Gender, UserRole, IdentityType } from '../entities/user.enum';
+import { Gender, UserRole, IdentityType } from '../../user/entities/user.enum';
 
 export class CreateUserDto {
   @IsEmail()

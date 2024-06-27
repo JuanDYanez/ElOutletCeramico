@@ -4,6 +4,7 @@ import { TypeOrmModule } from '@nestjs/typeorm';
 
 import { enviroments } from './enviroments';
 import config from './config';
+import { AuthModule } from './modules/auth/auth.module';
 
 @Module({
   imports: [
@@ -29,7 +30,7 @@ import config from './config';
       },
       inject: [ConfigService],
     }),
+    AuthModule,
   ],
-  controllers: [],
 })
 export class AppModule {}

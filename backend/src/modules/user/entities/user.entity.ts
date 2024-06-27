@@ -47,7 +47,7 @@ export class User {
   birthdate: Date;
 
   @Column({ type: 'enum', enum: UserRole, nullable: false })
-  rol: UserRole;
+  role: UserRole;
 
   @CreateDateColumn({
     type: 'timestamp',

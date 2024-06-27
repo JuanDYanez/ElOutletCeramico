@@ -12,6 +12,7 @@ export default registerAs('config', () => {
     },
     api: {
       port: process.env.PORT,
+      jwtSecret: process.env.JWT_SECRET,
     },
   };
 });
