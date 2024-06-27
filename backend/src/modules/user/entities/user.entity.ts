@@ -19,46 +19,46 @@ export class User {
   email: string;
 
   @Column({ nullable: false })
-  contraseña: string;
+  password: string;
 
   @Column({ nullable: false })
-  telefono: string;
+  cellphone: string;
 
   @Column({ nullable: false })
-  nombres: string;
+  firstname: string;
 
   @Column({ nullable: false })
-  apellido: string;
+  lastname: string;
 
   @Column({ nullable: false })
-  direccion: string;
+  address: string;
 
   @Column({ type: 'enum', enum: IdentityType, nullable: false })
-  tipoDeIdentidad: IdentityType;
+  identityType: IdentityType;
 
   @Index()
   @Column({ unique: true, nullable: false })
-  numeroDeIdentidad: number;
+  identityNumber: number;
 
   @Column({ type: 'enum', enum: Gender, nullable: false })
-  genero: Gender;
+  gender: Gender;
 
   @Column({ nullable: false })
-  fechaDeNacimiento: Date;
+  birthdate: Date;
 
   @Column({ type: 'enum', enum: UserRole, nullable: false })
-  rol: UserRole;
+  role: UserRole;
 
   @CreateDateColumn({
     type: 'timestamp',
     nullable: false,
     default: () => 'CURRENT_TIMESTAMP',
   })
-  creado: Date;
+  createdAt: Date;
 
   @DeleteDateColumn({ type: 'timestamp', nullable: true })
-  eliminado?: Date;
+  deletedAt?: Date;
 
   @UpdateDateColumn({ type: 'timestamp', nullable: true })
-  actualizado: Date;
+  updatedAt: Date;
 }
