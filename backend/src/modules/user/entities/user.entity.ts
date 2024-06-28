@@ -37,7 +37,7 @@ export class User {
   identityType: IdentityType;
 
   @Index()
-  @Column({ unique: true, nullable: false })
+  @Column({ nullable: false })
   identityNumber: number;
 
   @Column({ type: 'enum', enum: Gender, nullable: false })
