@@ -9,6 +9,7 @@ const PORT = config().api.port;
 async function bootstrap() {
   const app = await NestFactory.create(AppModule);
   const configDoc = new DocumentBuilder()
+    .addBearerAuth()
     .setTitle('El outlet ceramico')
     .setDescription('API')
     .setVersion('1.0')

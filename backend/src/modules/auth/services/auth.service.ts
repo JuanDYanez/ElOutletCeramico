@@ -17,7 +17,7 @@ export class AuthService {
   ) {}
 
   async registerUser(userObject: CreateUserDto): Promise<{ success: boolean }> {
-    const { password, email, identityNumber } = userObject;
+    const { password, email } = userObject;
 
     const existingUser = await this.userRepository.findOne({
       where: { email },
@@ -27,7 +27,6 @@ export class AuthService {
     }
 
     const hashedPassword = bcrypt.hashSync(password, 10);
-
     const newUser = this.userRepository.create({
       ...userObject,
       password: hashedPassword,

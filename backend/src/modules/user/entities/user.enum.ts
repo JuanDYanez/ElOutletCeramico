@@ -10,7 +10,7 @@ export enum IdentityType {
 }
 
 export enum UserRole {
-  ADMINISTRADOR = 'Administrador',
-  USUARIO = 'Usuario',
-  MODERADOR = 'Moderador',
+  ADMINISTRADOR = 'admin',
+  USUARIO = 'user',
+  MODERADOR = 'moderator',
 }
