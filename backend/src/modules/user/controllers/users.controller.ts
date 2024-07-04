@@ -1,10 +1,11 @@
-import { Controller, Delete, Get, Patch } from '@nestjs/common';
+import { Controller, Delete, Get, ParseIntPipe, Patch } from '@nestjs/common';
 import { UsersServices } from '../services/users.service';
-import { UseGuards } from '@nestjs/common/decorators';
+import { Param, UseGuards, UsePipes } from '@nestjs/common/decorators';
 import { JwtAuthGuard } from 'src/modules/auth/guards/jwt-auth.guard';
 import { ApiBearerAuth } from '@nestjs/swagger';
 import { RolesGuard } from 'src/modules/auth/guards/roles/roles.guard';
 import { Roles } from 'src/modules/auth/decorators/roles.decorator';
+import { User } from '../entities/user.entity';
 
 @ApiBearerAuth()
 @UseGuards(JwtAuthGuard, RolesGuard)
@@ -14,12 +15,17 @@ export class UsersController {
 
   @Roles('admin')
   @Get()
-  async getUsers() {
-    return 'pato';
+  async getUsers(): Promise<{ success: boolean; users: User[] }> {
+    return this.userServices.getUsers();
   }
 
   @Get(':id')
-  async getUserProfile() {}
+  @UsePipes(new ParseIntPipe())
+  async getUserProfile(
+    @Param('id') id: number,
+  ): Promise<{ success: boolean; user: User }> {
+    return this.userServices.getUserProfile(id);
+  }
 
   @Patch(':id')
   async updateUserProfile() {}

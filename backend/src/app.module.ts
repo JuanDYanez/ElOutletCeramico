@@ -7,6 +7,7 @@ import config from './config';
 import { AllExceptionsFilter } from './common/filters/all-exceptions.filter';
 import { AuthModule } from './modules/auth/auth.module';
 import { APP_FILTER } from '@nestjs/core';
+import { UserModule } from './modules/user/users.module';
 
 @Module({
   imports: [
@@ -33,6 +34,7 @@ import { APP_FILTER } from '@nestjs/core';
       inject: [ConfigService],
     }),
     AuthModule,
+    UserModule,
   ],
   providers: [
     {
