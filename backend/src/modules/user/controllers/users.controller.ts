@@ -1,40 +1,42 @@
 import { Controller, Delete, Get, ParseIntPipe, Patch } from '@nestjs/common';
-import { UsersServices } from '../services/users.service';
-import { Param, UseGuards, UsePipes } from '@nestjs/common/decorators';
+import { Param, UseGuards } from '@nestjs/common/decorators';
 import { JwtAuthGuard } from 'src/modules/auth/guards/jwt-auth.guard';
 import { ApiBearerAuth } from '@nestjs/swagger';
+
+import { UsersServices } from '../services/users.service';
 import { RolesGuard } from 'src/modules/auth/guards/roles/roles.guard';
 import { Roles } from 'src/modules/auth/decorators/roles.decorator';
 import { User } from '../entities/user.entity';
+import { GetUser } from '../decorators/user.decorator';
+import { RoleType, UserRoutes } from '../constants/user.constants';
 
 @ApiBearerAuth()
 @UseGuards(JwtAuthGuard, RolesGuard)
-@Controller('users')
+@Controller(UserRoutes.MAIN)
 export class UsersController {
   constructor(private readonly userServices: UsersServices) {}
 
-  @Roles('admin')
   @Get()
+  @Roles(RoleType.ADMIN)
   async getUsers(): Promise<{ success: boolean; users: User[] }> {
     return this.userServices.getUsers();
   }
 
-  @Get(':id')
-  @UsePipes(new ParseIntPipe())
+  @Get(UserRoutes.PROFILE.GET)
   async getUserProfile(
-    @Param('id') id: number,
+    @GetUser('id') userId: number,
   ): Promise<{ success: boolean; user: User }> {
-    return this.userServices.getUserProfile(id);
+    return this.userServices.getUserProfile(userId);
   }
 
-  @Patch(':id')
-  async updateUserProfile() {}
+  @Patch(UserRoutes.PROFILE.UPDATE)
+  async updateUserProfile(@GetUser('id') userId: number) {}
 
-  @Roles('admin')
   @Delete(':id')
+  @Roles(RoleType.ADMIN)
   async softDeleteUser() {}
 
-  @Roles('admin')
-  @Patch('restore/:id')
+  @Patch(UserRoutes.PROFILE.RESTORE)
+  @Roles(RoleType.ADMIN)
   async restoreUser() {}
 }
